@@ -1,7 +1,11 @@
 import sys
 from PySide2.QtWidgets import (QApplication, QDialog, QWidget, QRadioButton, QLineEdit, QPushButton,
                                QMessageBox,QFrame,QVBoxLayout, QStackedWidget)
+from PySide2.QtGui import(QImage,QPixmap)
+from PySide2.QtCore import(QTimer,QSize)
+
 from Roc import Ui_Dialog
+
 import metodos
 
 class Roc (QDialog):
@@ -17,7 +21,7 @@ class Roc (QDialog):
         self.ui.boton_inicio.clicked.connect(self.setear_incio)
         self.ui.boton_fin.clicked.connect(self.setear_fin)
         self.ui.confirmar_n.clicked.connect(self.confirmar_nodos)
-        self.ui.clear.clicked.connect(self.limpieza)
+        self.ui.btn_clear.clicked.connect(self.limpieza)
     
     ###metodos de movimiento
     

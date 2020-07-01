@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>499</width>
-    <height>424</height>
+    <width>500</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,156 +16,185 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>481</width>
-     <height>401</height>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>450</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 170, 255);</string>
+    <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page_4">
-    <widget class="QPushButton" name="entrar">
+    <widget class="QLabel" name="fondo_1">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>280</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Entrar </string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="contrasena">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>240</y>
-       <width>151</width>
-       <height>21</height>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>450</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
+     <property name="pixmap">
+      <pixmap>fondos/1234.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="usuario">
+    <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>100</y>
-       <width>61</width>
-       <height>41</height>
+       <x>80</x>
+       <y>90</y>
+       <width>341</width>
+       <height>251</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>16</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
-     <property name="text">
-      <string>User</string>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
      </property>
-    </widget>
-    <widget class="QLineEdit" name="usuario_2">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>140</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
+     <property name="lineWidth">
+      <number>2</number>
      </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Normal</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="contra">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>200</y>
-       <width>121</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>16</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Contraseña</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="titulo">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>50</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>18</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Sign </string>
-     </property>
+     <widget class="QLabel" name="la_usuario">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 14pt &quot;Verdana&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Usuario</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="la_contrasena">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 14pt &quot;Verdana&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Contraseña</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="usuario">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>90</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="contrasena">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>150</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="entrar">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>200</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.141243 rgba(18, 102, 139, 255), stop:1 rgba(255, 255, 255, 255));</string>
+      </property>
+      <property name="text">
+       <string>Acceder</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="la_titulo">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>20</y>
+        <width>71</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 italic 28pt &quot;Artifakt Element&quot;;</string>
+      </property>
+      <property name="text">
+       <string>RoC</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="page">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="titulo_p2">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>10</y>
-       <width>131</width>
+       <x>125</x>
+       <y>20</y>
+       <width>250</width>
        <height>71</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 italic 28pt &quot;Artifakt Element&quot;;</string>
+     </property>
      <property name="text">
-      <string>Menu principal</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Menu principal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="mover_r">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>260</y>
-       <width>91</width>
-       <height>31</height>
+       <x>270</x>
+       <y>220</y>
+       <width>161</width>
+       <height>101</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Mover</string>
@@ -175,21 +204,47 @@
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>260</y>
-       <width>91</width>
-       <height>31</height>
+       <y>220</y>
+       <width>161</width>
+       <height>101</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Herramientas</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="page_2">
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="fondo_2">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>450</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>fondos/123.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>fondo_2</zorder>
+    <zorder>titulo_p2</zorder>
+    <zorder>mover_r</zorder>
+    <zorder>herramienta</zorder>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <widget class="QLabel" name="titulo_p3">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
        <y>0</y>
        <width>311</width>
        <height>61</height>
@@ -204,16 +259,17 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(101, 117, 143);</string>
+      <string notr="true">
+</string>
      </property>
      <property name="text">
-      <string>Configurar de movimiento </string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Configurar de movimiento &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="nodo_E">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>200</x>
        <y>110</y>
        <width>100</width>
        <height>40</height>
@@ -226,7 +282,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(79, 95, 111);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>E</string>
@@ -235,7 +291,7 @@
     <widget class="QRadioButton" name="nodo_G">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>200</x>
        <y>160</y>
        <width>100</width>
        <height>40</height>
@@ -248,7 +304,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(79, 95, 111);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>G</string>
@@ -257,7 +313,7 @@
     <widget class="QRadioButton" name="nodo_B">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>200</x>
        <y>60</y>
        <width>100</width>
        <height>40</height>
@@ -270,7 +326,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(128, 152, 180);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);
+</string>
      </property>
      <property name="text">
       <string>B</string>
@@ -279,7 +336,7 @@
     <widget class="QRadioButton" name="nodo_H">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>160</y>
        <width>100</width>
        <height>40</height>
@@ -292,7 +349,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(128, 152, 180);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>H</string>
@@ -301,7 +358,7 @@
     <widget class="QRadioButton" name="nodo_C">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>330</x>
        <y>60</y>
        <width>100</width>
        <height>40</height>
@@ -314,7 +371,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(128, 152, 180);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>C</string>
@@ -323,7 +380,7 @@
     <widget class="QRadioButton" name="nodo_D">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>110</y>
        <width>100</width>
        <height>40</height>
@@ -336,7 +393,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(128, 152, 180);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>D</string>
@@ -345,7 +402,7 @@
     <widget class="QRadioButton" name="nodo_F">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>330</x>
        <y>110</y>
        <width>100</width>
        <height>40</height>
@@ -358,7 +415,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(124, 146, 174);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>F</string>
@@ -367,7 +424,7 @@
     <widget class="QRadioButton" name="nodo_I">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>330</x>
        <y>160</y>
        <width>100</width>
        <height>40</height>
@@ -380,7 +437,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(124, 146, 174);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);
+</string>
      </property>
      <property name="text">
       <string>I</string>
@@ -389,7 +447,7 @@
     <widget class="QRadioButton" name="nodo_A">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>60</x>
        <y>60</y>
        <width>100</width>
        <height>40</height>
@@ -402,7 +460,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(128, 152, 180);</string>
+      <string notr="true">background-color: rgb(255, 255, 255,220);</string>
      </property>
      <property name="text">
       <string>A</string>
@@ -411,7 +469,7 @@
     <widget class="QPushButton" name="boton_inicio">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>60</x>
        <y>250</y>
        <width>91</width>
        <height>41</height>
@@ -432,7 +490,7 @@ font: 9pt &quot;Consolas&quot;;</string>
     <widget class="QPushButton" name="boton_fin">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>60</x>
        <y>300</y>
        <width>91</width>
        <height>41</height>
@@ -450,7 +508,7 @@ font: 9pt &quot;Consolas&quot;;</string>
     <widget class="QLineEdit" name="opc_inicio">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>160</x>
        <y>260</y>
        <width>113</width>
        <height>20</height>
@@ -464,7 +522,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="opc_fin">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>160</x>
        <y>310</y>
        <width>113</width>
        <height>20</height>
@@ -475,13 +533,13 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="clear">
+    <widget class="QPushButton" name="btn_clear">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>300</y>
-       <width>121</width>
-       <height>41</height>
+       <x>330</x>
+       <y>290</y>
+       <width>131</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -504,10 +562,10 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
     <widget class="QPushButton" name="confirmar_n">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>250</y>
+       <x>330</x>
+       <y>370</y>
        <width>121</width>
-       <height>41</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -522,10 +580,10 @@ font: 75 italic 10pt &quot;Consolas&quot;;
     <widget class="QPushButton" name="mostrar_grafico">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>350</y>
-       <width>121</width>
-       <height>41</height>
+       <x>60</x>
+       <y>370</y>
+       <width>111</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -540,10 +598,10 @@ font: 9pt &quot;Consolas&quot;;</string>
     <widget class="QPushButton" name="back">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>350</y>
-       <width>121</width>
-       <height>41</height>
+       <x>190</x>
+       <y>370</y>
+       <width>111</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -554,12 +612,50 @@ font: 10pt &quot;Consolas&quot;;</string>
       <string>Volver</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="page_3">
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="fondo_3">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>450</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>fondos/1234.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>fondo_3</zorder>
+    <zorder>titulo_p3</zorder>
+    <zorder>nodo_E</zorder>
+    <zorder>nodo_G</zorder>
+    <zorder>nodo_B</zorder>
+    <zorder>nodo_H</zorder>
+    <zorder>nodo_C</zorder>
+    <zorder>nodo_D</zorder>
+    <zorder>nodo_F</zorder>
+    <zorder>nodo_I</zorder>
+    <zorder>nodo_A</zorder>
+    <zorder>boton_inicio</zorder>
+    <zorder>boton_fin</zorder>
+    <zorder>opc_inicio</zorder>
+    <zorder>opc_fin</zorder>
+    <zorder>btn_clear</zorder>
+    <zorder>confirmar_n</zorder>
+    <zorder>mostrar_grafico</zorder>
+    <zorder>back</zorder>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <widget class="QLabel" name="titulo_p4">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
        <y>0</y>
        <width>241</width>
        <height>41</height>
@@ -567,12 +663,18 @@ font: 10pt &quot;Consolas&quot;;</string>
      </property>
      <property name="font">
       <font>
-       <family>Consolas</family>
-       <pointsize>16</pointsize>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>24</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
      <property name="text">
-      <string>Viaje en curso</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Viaje en curso&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -581,44 +683,71 @@ font: 10pt &quot;Consolas&quot;;</string>
     <widget class="QPushButton" name="irconfimov">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>300</y>
-       <width>141</width>
+       <x>140</x>
+       <y>330</y>
+       <width>181</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 85, 0);
+font: 75 10pt &quot;Consolas&quot;;</string>
      </property>
      <property name="text">
       <string>Configurar  movimiento</string>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="progreso">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>40</y>
-       <width>151</width>
-       <height>111</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="camera">
+    <widget class="QTextBrowser" name="textBrowser">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>50</y>
-       <width>211</width>
-       <height>181</height>
+       <y>250</y>
+       <width>271</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="show">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>330</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 127);
+font: 75 10pt &quot;Consolas&quot;;</string>
+     </property>
+     <property name="text">
+      <string>show</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="imagen">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>40</y>
+       <width>300</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
      </property>
      <property name="text">
       <string/>
      </property>
     </widget>
-    <widget class="QProgressBar" name="progressBarnodo">
+    <widget class="QProgressBar" name="progresaBar">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>180</y>
+       <x>320</x>
+       <y>250</y>
        <width>118</width>
        <height>23</height>
       </rect>
@@ -627,11 +756,35 @@ font: 10pt &quot;Consolas&quot;;</string>
       <number>24</number>
      </property>
     </widget>
+    <widget class="QLabel" name="fondo_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>450</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>fondos/cmatrix.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>fondo_4</zorder>
+    <zorder>titulo_p4</zorder>
+    <zorder>irconfimov</zorder>
+    <zorder>show</zorder>
+    <zorder>progresaBar</zorder>
+    <zorder>imagen</zorder>
+    <zorder>textBrowser</zorder>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="imagenes.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
