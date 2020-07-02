@@ -243,16 +243,12 @@ class Ui_Dialog(object):
         self.titulo_p4.setAlignment(Qt.AlignCenter)
         self.irconfimov = QPushButton(self.page_3)
         self.irconfimov.setObjectName(u"irconfimov")
-        self.irconfimov.setGeometry(QRect(140, 330, 181, 51))
+        self.irconfimov.setGeometry(QRect(280, 330, 181, 51))
         self.irconfimov.setStyleSheet(u"background-color: rgb(255, 85, 0);\n"
 "font: 75 10pt \"Consolas\";")
-        self.textBrowser = QTextBrowser(self.page_3)
-        self.textBrowser.setObjectName(u"textBrowser")
-        self.textBrowser.setGeometry(QRect(20, 250, 271, 61))
-        self.textBrowser.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.show = QPushButton(self.page_3)
         self.show.setObjectName(u"show")
-        self.show.setGeometry(QRect(20, 330, 111, 51))
+        self.show.setGeometry(QRect(50, 330, 111, 51))
         self.show.setStyleSheet(u"background-color: rgb(255, 255, 127);\n"
 "font: 75 10pt \"Consolas\";")
         self.imagen = QLabel(self.page_3)
@@ -268,6 +264,12 @@ class Ui_Dialog(object):
         self.fondo_4.setGeometry(QRect(0, 0, 500, 450))
         self.fondo_4.setPixmap(QPixmap(u"fondos/cmatrix.png"))
         self.fondo_4.setScaledContents(True)
+        self.stop_record = QPushButton(self.page_3)
+        self.stop_record.setObjectName(u"stop_record")
+        self.stop_record.setGeometry(QRect(180, 320, 75, 61))
+        self.line_progreso = QLineEdit(self.page_3)
+        self.line_progreso.setObjectName(u"line_progreso")
+        self.line_progreso.setGeometry(QRect(80, 250, 191, 41))
         self.stackedWidget.addWidget(self.page_3)
         self.fondo_4.raise_()
         self.titulo_p4.raise_()
@@ -275,11 +277,12 @@ class Ui_Dialog(object):
         self.show.raise_()
         self.progresaBar.raise_()
         self.imagen.raise_()
-        self.textBrowser.raise_()
+        self.stop_record.raise_()
+        self.line_progreso.raise_()
 
         self.retranslateUi(Dialog)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -320,5 +323,6 @@ class Ui_Dialog(object):
         self.show.setText(QCoreApplication.translate("Dialog", u"show", None))
         self.imagen.setText("")
         self.fondo_4.setText("")
+        self.stop_record.setText(QCoreApplication.translate("Dialog", u"Stop", None))
     # retranslateUi
 

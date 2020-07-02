@@ -9,14 +9,13 @@ import serial
 
 #Creamos el data y el grafo con el que vamos a trabajar 
 def db():
-    data = pd.read_csv("C:/Users/Enrique Manuel/Desktop/RoC/Programacion/base_datos.csv")        #lee la base de datos 
+    data = pd.read_csv("C:/Users/Enrique Manuel/Desktop/multiventanas/base_datos.csv")        #lee la base de datos 
     g = nx.Graph()                              #creamos el grafo 
     for row in data.iterrows():                 #Agregamos los nodos 
         g.add_edge(row[1]["origen"],            #por medio de edges lo que nos permite dar origen y destino
                    row[1]["destino"],           #destino
                    large = row[1]["distancia"],    #agregamos pesos con la distancia 
                    way = row[1]["direccion"])   #ademas de la direccion en donde esta 
-    print(g)                                    #imprimimos la lista de los nodos 
     return data,g                               #retornamos el csv y el grafo que creamos
    
 #generamos una busqueda 
@@ -88,6 +87,49 @@ def mensaje_nodo(o,d):
     else:
         mensaje = "Uno o mas nodos no estan en el db"
         
+
+def verificacion(punto):
+    espera = 10
+    data, g = db()
+    todos_los_nodos= g.nodes()
+    t = time.time()  # ingresamos el tiempo base
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)#abrimos la camara
+    #font = cv2.FONT_HERSHEY_PLAIN   // por si queremos mostrar algun mensaje en la pantalla de la camara
+    #qr = [] #es un un arreglo vaicio el cual ya a contener la salida de la funcion
+    estado = True #es la llave para el ciclo while creo que se puede cambiar y solamente poner while true y poner breaks
+    time.sleep(1)
+    while estado:
+        n = time.time() #obtenemos el tiempo
+        _, frame = cap.read() #creamos la variable frame la cual nos va a dar la lectura de la camara
+        decodedObjects = pyzbar.decode(frame) #aqui obtenemos el objeto qr el cual lo va a obtener de la imagen obtenida frame
+        for obj in decodedObjects:
+            (x, y, w, h) = obj.rect #obtenemos las coordenadas del objeto
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2) #dibujamos un rectangulo en las coordenadas obtenidas
+            barcodeData = obj.data.decode("utf-8") #obtenemos el mensaje que contine la imagen qr
+            #cv2.putText(frame, str(barcodeData), (30, 30), font, 2, (255, 0, 0), 3)
+            for i in todos_los_nodos: #recorre la variable i en la lista de nodos
+                if barcodeData == i:
+                    qr = barcodeData
+                    estado = False
+             #print("Type: " , obj.type)
+        cv2.imshow("Frame", frame)
+        if (n== t + espera) or (n>= t + espera): #aquie se genera la cuenta
+            estado = False
+        #else:
+        #    print("{}".format(n-t)) # imprime el tiempo que va pasando
+        key = cv2.waitKey(3) & 0xff
+        if key == False:
+            break
+    cap.release()
+    cv2.destroyAllWindows()
+
+    if len(qr) != 0: # aqui manda el estado y el qr
+        if qr == punto:
+            return True, qr #si qr es igual al punto que mandamos envia un true y el punto
+        else:
+            return False, qr # si no manda un falso pero si lee algo y ese algo lo manda
+    else:
+        return False, None  # si no lee nada manda un falso y una lista vacia
 
 
 

@@ -1,0 +1,17 @@
+origen,destino,distancia,direccion
+O,A,5,2
+A,O,5,4
+A,B,5,2
+A,D,8,1
+B,A,5,4
+B,E,8,1
+B,C,5,2
+C,B,5,4
+C,F,8,1
+D,A,8,3
+D,E,5,2
+E,D,5,4
+E,B,8,3
+E,F,5,2
+F,E,5,3
+F,C,8,3

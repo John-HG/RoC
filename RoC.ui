@@ -26,7 +26,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="page_4">
     <widget class="QLabel" name="fondo_1">
@@ -259,8 +259,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Configurar de movimiento &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -683,7 +682,7 @@ font: 10pt &quot;Consolas&quot;;</string>
     <widget class="QPushButton" name="irconfimov">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>280</x>
        <y>330</y>
        <width>181</width>
        <height>51</height>
@@ -697,23 +696,10 @@ font: 75 10pt &quot;Consolas&quot;;</string>
       <string>Configurar  movimiento</string>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="textBrowser">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>250</y>
-       <width>271</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="show">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>50</x>
        <y>330</y>
        <width>111</width>
        <height>51</height>
@@ -775,13 +761,37 @@ font: 75 10pt &quot;Consolas&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QPushButton" name="stop_record">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>320</y>
+       <width>75</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_progreso">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>250</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
     <zorder>fondo_4</zorder>
     <zorder>titulo_p4</zorder>
     <zorder>irconfimov</zorder>
     <zorder>show</zorder>
     <zorder>progresaBar</zorder>
     <zorder>imagen</zorder>
-    <zorder>textBrowser</zorder>
+    <zorder>stop_record</zorder>
+    <zorder>line_progreso</zorder>
    </widget>
   </widget>
  </widget>
