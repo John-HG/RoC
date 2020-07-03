@@ -92,41 +92,55 @@ class Roc (QDialog):
     def setup_camera(self):
         self.cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
         self.timer = QTimer()
-        self.timer.timeout.connect(self.ver_video)
+        self.timer.timeout.connect(self.ver_video(self.ui.opc_inicio.text()))
         self.timer.start(30)
         self.t = time.time() ##################################
         self.espera = 30
-    def ver_video(self):
-        n = time.time() #############
-        _,frame = self.cap.read()
-        _,g = metodos.db()
-        todos_los_nodos = g.nodes()
-        qr = []
-        #####################################
-        decodedObjects = pyzbar.decode(frame) #aqui obtenemos el objeto qr el cual lo va a obtener de la imagen obtenida frame
-        for obj in decodedObjects:
-            (x, y, w, h) = obj.rect #obtenemos las coordenadas del objeto
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2) #dibujamos un rectangulo en las coordenadas obtenidas
-            barcodeData = obj.data.decode("utf-8") #obtenemos el mensaje que contine la imagen qr
-            #cv2.putText(frame, str(barcodeData), (30, 30), font, 2, (255, 0, 0), 3)
-            for i in todos_los_nodos: #recorre la variable i en la lista de nodos
-                if barcodeData == i:
-                    qr = barcodeData
-                    estado = False
-             #print("Type: " , obj.type)
-        #////////////////////////////////aqui anterior//////////7##
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame = cv2.flip(frame,1)
-        cuadro = QImage(frame,frame.shape[1],frame.shape[0],frame.strides[0],QImage.Format_RGB888)
-        self.ui.imagen.setPixmap(QPixmap.fromImage(cuadro))
-        ##/////////////////////////////////////////////////////////
-        if (n== self.t + self.espera) or (n>= self.t + self.espera): #aquie se genera la cuenta
-            estado = False
-        #######################################
-        
-        if len(qr) != 0:
-            if qr == "A":
-                self.ui.line_progreso.setText(qr)
+    def ver_video(self,f):
+        espera = 10
+        #data, g = db()
+        todos_los_nodos= ["A","B"]#g.nodes()
+        t = time.time()  # ingresamos el tiempo base
+        qr = [] #es un un arreglo vaicio el cual ya a contener la salida de la funcion
+        estado = True #es la llave para el ciclo while creo que se puede cambiar y solamente poner while true y poner breaks
+        time.sleep(1)
+        while estado:
+            n = time.time() #obtenemos el tiempo
+            _, frame = self.cap.read() #creamos la variable frame la cual nos va a dar la lectura de la camara
+            decodedObjects = pyzbar.decode(frame) #aqui obtenemos el objeto qr el cual lo va a obtener de la imagen obtenida frame
+            for obj in decodedObjects:
+                (x, y, w, h) = obj.rect #obtenemos las coordenadas del objeto
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2) #dibujamos un rectangulo en las coordenadas obtenidas
+                barcodeData = obj.data.decode("utf-8") #obtenemos el mensaje que contine la imagen qr
+                for i in todos_los_nodos: #recorre la variable i en la lista de nodos
+                    if barcodeData == i:
+                        qr = barcodeData
+                        estado = False
+                #print("Type: " , obj.type)
+            frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
+            frame = cv2.flip(frame,1)
+            imagen = QImage(frame,frame.shape[1], frame.shape[0],frame.strides[0], QImage.Format_RGB888)
+            self.ui.imagen.setPixmap(QPixmap.fromImage(imagen))
+            if (n== t + espera) or (n>= t + espera): #aquie se genera la cuenta
+                estado = False
+            #else:
+            #    print("{}".format(n-t)) # imprime el tiempo que va pasando
+            key = cv2.waitKey(3) & 0xff
+            if key == False:
+                break
+        self.cap.release()
+        cv2.destroyAllWindows()
+
+        if len(qr) != 0: # aqui manda el estado y el qr
+            if qr == f:
+                self.ui.line_progreso.setText("Nodo verificado {}".format(qr))
+                #return True, qr #si qr es igual al punto que mandamos envia un true y el punto
+            else:
+                self.ui.line_progreso.setText("Nodo incorrecto se detecta el nodo {}".format(qr))
+                #return False, qr # si no manda un falso pero si lee algo y ese algo lo manda
+        else:
+            self.ui.line_progreso.setText("No de detecto ningun nodo")
+            #return False, None  # si no lee nada manda un falso y una lista vacia
             
 
 
