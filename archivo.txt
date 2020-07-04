@@ -1,3 +1,44 @@
+ef viaje(self):                                                    #menu de vieje     
+        #time.sleep(3)
+        self.ui.stackedWidget.setCurrentIndex(3)                        
+        self.ui.irconfimov.clicked.connect(self.configurar_viaje)       #si se presiona se va a configurar viaje 
+        self.ui.lista_nodos.setText(self.listanodos)
+        contador = 1
+        c = len(self.camino)    
+        for i in self.camino:
+            if contador< c:
+                self.ui.actual.setText(i)
+                self.ui.siguiente.setText(self.camino[contador])
+                y = metodos.direccion(i , self.camino[contador])
+                self.ui.direccion.setText(y)
+                time.sleep(1)
+                self.setup_camera(i)
+                #if self.ui.line_progreso.text() == "Nodo verificado":
+                 #   contador += 1
+                if self.vvnodo == i and self.estado == True:
+                    self.ui.line_progreso.setText("Nodo verificado")
+                    contador += 1
+                elif self.vvnodo != i and self.estado == True:
+                    print("nadan")
+                    self.cap.release()
+                    self.ui.line_progreso.setText("Nodo incorrecto {}".format(self.vvnodo))
+                    self.ui.siguiente.clear()
+                    self.ui.actual.clear()
+                    break
+                else:
+                    msgb = QMessageBox()
+                    msgb.setText("Necesito ayuda ")
+                    msgb.exec_()
+            elif contador == c:
+                self.ui.actual.setText(i)
+                self.ui.siguiente.setText("nada")
+                time.sleep(1)
+                self.setup_camera(i)      
+
+
+
+
+
 import sys
 import cv2
 import time
@@ -9,6 +50,8 @@ from PySide2.QtCore import(QTimer,QSize)
 
 from Roc import Ui_Dialog
 import metodos
+
+
 
 class Roc (QDialog):
     def __init__(self):
@@ -22,6 +65,8 @@ class Roc (QDialog):
         self.ui.btn_clear.clicked.connect(self.limpieza)
         self.ui.boton_inicio.clicked.connect(self.setear_incio)
         self.ui.boton_fin.clicked.connect(self.setear_fin)
+        self.vvnodo = []
+        self.estado = False
         
         
         #hoja 0 Login                
@@ -41,22 +86,60 @@ class Roc (QDialog):
         self.ui.back.clicked.connect(self.menuprincipal)
         self.ui.opc_inicio.clear()
         self.ui.opc_fin.clear()
-        self.cap.release()
         #self.ui.confirmar_n.clicked.connect(self.viaje)               #snos manda a hoja 3  viaje
 
     #hoja 3 vieje
     def viaje(self):                                                    #menu de vieje     
         #time.sleep(3)
         self.ui.stackedWidget.setCurrentIndex(3)                        
-        self.ui.irconfimov.clicked.connect(self.configurar_viaje)       #si se presiona se va a configurar viaje
-        self.mover(self.elinicio,self.elfin,None)
-        msgb = QMessageBox.question(self,"ooo",
-                                    "Se llego al final",
-                                    QMessageBox.Yes| QMessageBox.No)
-        if msgb == QMessageBox.Yes:
-            self.menuprincipal()
-        else:
-            self.configurar_viaje()
+        self.ui.irconfimov.clicked.connect(self.configurar_viaje)       #si se presiona se va a configurar viaje 
+        self.ui.lista_nodos.setText(self.listanodos)
+        contador = 1
+        c = len(self.camino)    
+        for i in self.camino:
+            if contador< c:
+                self.ui.actual.setText(i)
+                self.ui.siguiente.setText(self.camino[contador])
+                y = metodos.direccion(i , self.camino[contador])
+                self.ui.direccion.setText(y)
+                time.sleep(1)
+                self.setup_camera(i)
+                #if self.ui.line_progreso.text() == "Nodo verificado":
+                 #   contador += 1
+                if self.vvnodo == i and self.estado == True:
+                    self.ui.line_progreso.setText("Nodo verificado")
+                    contador += 1
+                elif self.vvnodo != i and self.estado == True:
+                    print("nadan")
+                    self.cap.release()
+                    self.ui.line_progreso.setText("Nodo incorrecto {}".format(self.vvnodo))
+                    self.ui.siguiente.clear()
+                    self.ui.actual.clear()
+                    break
+                else:
+                    msgb = QMessageBox()
+                    msgb.setText("Necesito ayuda ")
+                    msgb.exec_()
+            elif contador == c:
+                self.ui.actual.setText(i)
+                self.ui.siguiente.setText("nada")
+                time.sleep(1)
+                self.setup_camera(i)
+
+                """if self.ui.line_progreso.text() == "Nodo incorrecto":
+                    msgb = QMessageBox()
+                    msgb.setText("Nodo incorrecto")
+                    msgb.exec_()
+                elif self.ui.line_progreso.text() == "Nodo verificado":
+                    contador += 1
+"""
+                   
+                    #self.ui.actual.setText(self.vvnodo)
+                    #self.ui.siguiente.setText(i)
+                    #y = metodos.direccion(self.vvnodo,i)
+                    #self.ui.direccion.setText(y)
+            
+
 
     ####metodos de confirmar viaje 
     def setear_incio(self):   #aqui se agrega el nodo a inicio
@@ -76,28 +159,35 @@ class Roc (QDialog):
         self.ui.opc_fin.clear()   
 
     def confirmar_nodos(self):
-        self.elinicio = self.ui.opc_inicio.text()
-        self.elfin = self.ui.opc_fin.text()
-        if not self.elinicio or not self.elfin:
+        elinicio = self.ui.opc_inicio.text()
+        elfin = self.ui.opc_fin.text()
+        if not elinicio or not elfin:
             #print("ningun elemento ")
             msgb = QMessageBox()
             msgb.setText("Necesita completar el inicio y el fin ")
             msgb.exec_()
-        elif self.elinicio == self.elfin :
+        elif elinicio == elfin :
             msgb = QMessageBox()
             msgb.setText("Nodos iguales")
             msgb.exec_()
         else:
-            mensaje = metodos.mensaje_nodo(self.elinicio,self.elfin)
+            mensaje = metodos.mensaje_nodo(elinicio,elfin)
             msgb = QMessageBox()
             msgb.setText("{}".format(mensaje))
             msgb.exec_()
+            self.camino  = metodos.busqueda(elinicio,elfin)
+            self.listanodos = " ".join(self.camino)
             self.viaje()
     ######Metodos de viaje 
     def setup_camera(self,f):
         self.cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
         self.timer = QTimer()
+        self.timer.timeout.connect(self.ver_video(f))
         self.timer.start(30)
+        self.t = time.time() ##################################
+        self.espera = 15
+
+    def ver_video(self,f):
         espera = 15
         _, g = metodos.db()
         todos_los_nodos = g.nodes()
@@ -117,69 +207,43 @@ class Roc (QDialog):
                     if barcodeData == i:
                         qr = barcodeData
                         estado = False
+                #print("Type: " , obj.type)
             frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)                               #esto es lo que tenemos que hacer 
             frame = cv2.flip(frame,1)                                                   #para mostrarlo
             imagen = QImage(frame,frame.shape[1], frame.shape[0],frame.strides[0], QImage.Format_RGB888)
             self.ui.imagen.setPixmap(QPixmap.fromImage(imagen))
             if (n== t + espera) or (n>= t + espera):                                    #aquie se genera la cuenta
                 estado = False
+            #else:
+            #    print("{}".format(n-t)) # imprime el tiempo que va pasando
             key = cv2.waitKey(3) & 0xff                                                 #!!muy importante este key es necesario 
             if key == False:                                                                            #para que funcione esta parte !!
                 break
         self.cap.release()
         self.ui.imagen.setPixmap(QPixmap.fromImage("C:/Users/Enrique Manuel/Desktop/multiventanas/fondos/saitama.png"))
         self.timer.stop()
+        #cv2.destroyAllWindows()
+
         if len(qr) != 0:                                                            # aqui manda el estado y el qr
             if qr == f:
-                return True,qr
-                
+                #self.ui.line_progreso.setText("Nodo verificado")#{}".format(qr))
+                self.vvnodo = qr
+                self.estado = True
+                print(self.vvnodo)
             else:
-                return False,qr
-        else:
-            return False, None
+                #self.ui.line_progreso.setText("Nodo incorrecto")#.format(qr))
+                self.vvnodo = qr
+                self.estado = False
+                print(self.vvnodo)
 
-    def mover(self, inicio, fin,nodo_malo):
-        if nodo_malo == None:
-            lista = metodos.busqueda(inicio,fin)
-            listaS = " ".join(lista)
         else:
-            lista = metodos.busqueda_error(inicio,fin,nodo_malo)
-            listaS = " ".join(lista)
-        self.ui.lista_nodos.setText(listaS)
-        print(lista)
-        n = len(lista)
-        c = 1
-        for i in lista:
-            respuesta,nodo = self.setup_camera(i)
-            if respuesta == True and nodo == i:
-                if nodo == fin:
-                    y= "se verifico el ultimo nodo {} \n llegamos".format(nodo) 
-                    print(y)
-                    self.ui.verificacion.setText(y)
-                    break
-                else:
-                    x = "Se verifico {}".format(i)
-                    self.ui.verificacion.setText(x)
-                    mensaje,y = metodos.direccion(i,lista[c])
-                    self.ui.direccion.setText(mensaje)
-                    print(mensaje)
-                    metodos.comunicacion_arduino(str(y))
-                    c += 1
-            elif respuesta == False and nodo == None:
-                x= "No se encontro nodo  {}".format(i)
-                self.ui.verificacion.setText(x)
-                print(x)
-                print("i-1{}  fin{} error {}".format(lista[-2],fin,i))
-                self.mover(lista[-2], fin, i)
-                break
-            else:
-                x= "Nodo incorrecto {}".format(nodo)
-                self.ui.verificacion.setText(x)
-                print(x)
-                self.ui.direccion.clear()
-                self.mover(nodo,fin,None)        #####
-                break
+            #self.ui.line_progreso.setText("No de detecto ningun nodo")
+            self.vvnodo = None
+            self.estado=False
             
+ 
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myapp = Roc()
