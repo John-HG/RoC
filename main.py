@@ -32,23 +32,23 @@ class Roc (QDialog):
     
     # hoja 1 menu elegir mover robot o ver herramienta 
     def menuprincipal(self):                                            
-        self.ui.stackedWidget.setCurrentIndex(1)                        #nos mueve al menu principal 
-        self.ui.mover_r.clicked.connect(self.configurar_viaje)          #nos manda a hoja 2
+        self.ui.stackedWidget.setCurrentIndex(1)                                        #nos mueve al menu principal 
+        self.ui.mover_r.clicked.connect(self.configurar_viaje)                          #nos manda a hoja 2
 
     #hoja 2 configurar viaje 
-    def configurar_viaje(self):                                         #menu de configurar viaje 
+    def configurar_viaje(self):                                                         #menu de configurar viaje 
         self.ui.stackedWidget.setCurrentIndex(2)
         self.ui.back.clicked.connect(self.menuprincipal)
         self.ui.opc_inicio.clear()
         self.ui.opc_fin.clear()
         self.cap.release()
-        #self.ui.confirmar_n.clicked.connect(self.viaje)               #snos manda a hoja 3  viaje
+        #self.ui.confirmar_n.clicked.connect(self.viaje)                                #snos manda a hoja 3  viaje
 
     #hoja 3 vieje
-    def viaje(self):                                                    #menu de vieje     
+    def viaje(self):                                                                    #menu de vieje     
         #time.sleep(3)
         self.ui.stackedWidget.setCurrentIndex(3)                        
-        self.ui.irconfimov.clicked.connect(self.configurar_viaje)       #si se presiona se va a configurar viaje
+        self.ui.irconfimov.clicked.connect(self.configurar_viaje)                       #si se presiona se va a configurar viaje
         self.mover(self.elinicio,self.elfin,None)
         msgb = QMessageBox.question(self,"ooo",
                                     "Se llego al final",
@@ -59,23 +59,23 @@ class Roc (QDialog):
             self.configurar_viaje()
 
     ####metodos de confirmar viaje 
-    def setear_incio(self):   #aqui se agrega el nodo a inicio
-        for x in self.lista:                           #se recorre la lista que tiene todos los radiobutton asignados
-            if x.isChecked() == True:                  #si algun nodo se selecciono 
-                #print(x.text())                        #se imprime el parametro text() del radioButton
-                self.ui.opc_inicio.setText(x.text())   #y se asigna al lineEdit                 
+    def setear_incio(self):                                                             #aqui se agrega el nodo a inicio
+        for x in self.lista:                                                            #se recorre la lista que tiene todos los radiobutton asignados
+            if x.isChecked() == True:                                                   #si algun nodo se selecciono 
+                #print(x.text())                                                        #se imprime el parametro text() del radioButton
+                self.ui.opc_inicio.setText(x.text())                                    #y se asigna al lineEdit                 
 
     def setear_fin(self):
-        for x in self.lista:                           #se recorre la lista que tiene todos los radiobutton asignados
-            if x.isChecked() == True:                  #si algun nodo se selecciono 
-                #print(x.text())                        #se imprime el parametro text() del radioButton
-                self.ui.opc_fin.setText(x.text())      #y se asigna al lineEdit
+        for x in self.lista:                                                            #se recorre la lista que tiene todos los radiobutton asignados
+            if x.isChecked() == True:                                                   #si algun nodo se selecciono 
+                #print(x.text())                                                        #se imprime el parametro text() del radioButton
+                self.ui.opc_fin.setText(x.text())                                       #y se asigna al lineEdit
     
-    def limpieza(self):
+    def limpieza(self):                                                                 #se limpian los lineEdit de inicio y fin 
         self.ui.opc_inicio.clear()
         self.ui.opc_fin.clear()   
 
-    def confirmar_nodos(self):
+    def confirmar_nodos(self):                                                          #se confirman los nodos con un messengbox
         self.elinicio = self.ui.opc_inicio.text()
         self.elfin = self.ui.opc_fin.text()
         if not self.elinicio or not self.elfin:
@@ -92,9 +92,9 @@ class Roc (QDialog):
             msgb = QMessageBox()
             msgb.setText("{}".format(mensaje))
             msgb.exec_()
-            self.viaje()
+            self.viaje()                                                                #nos manda a viaje
     ######Metodos de viaje 
-    def setup_camera(self,f):
+    def setup_camera(self,f):                                                           #abre la camara y verifca los nodos
         self.cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
         self.timer = QTimer()
         self.timer.start(30)
@@ -138,7 +138,7 @@ class Roc (QDialog):
         else:
             return False, None
 
-    def mover(self, inicio, fin,nodo_malo):
+    def mover(self, inicio, fin,nodo_malo):                                             #realiza la logica del movimiento
         if nodo_malo == None:
             lista = metodos.busqueda(inicio,fin)
             listaS = " ".join(lista)

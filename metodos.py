@@ -5,9 +5,6 @@ import pyzbar.pyzbar as pyzbar
 import time
 import serial
 
-
-
-
 #Creamos el data y el grafo con el que vamos a trabajar 
 def db():
     data = pd.read_csv("C:/Users/Enrique Manuel/Desktop/multiventanas/base_datos.csv")        #lee la base de datos 
