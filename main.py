@@ -17,7 +17,7 @@ class Roc (QDialog):
         self.ui.setupUi(self)
         self.lista = [self.ui.nodo_A, self.ui.nodo_B, self.ui.nodo_C, self.ui.nodo_D, self.ui.nodo_E,
                         self.ui.nodo_F, self.ui.nodo_G, self.ui.nodo_H, self.ui.nodo_I]
-        #Metodos de configurar viaje se pusieron aqui por que si se ponen el el metodo de configurara hace un pinche desmadre 
+        #Metodos de configurar viaje se pusieron aqui por que si se ponen en el metodo de configurar hace un pin*!$e desmadre 
         self.ui.confirmar_n.clicked.connect(self.confirmar_nodos)
         self.ui.btn_clear.clicked.connect(self.limpieza)
         self.ui.boton_inicio.clicked.connect(self.setear_incio)
@@ -42,10 +42,10 @@ class Roc (QDialog):
         self.ui.opc_inicio.clear()
         self.ui.opc_fin.clear()
         self.cap.release()
-        #self.ui.confirmar_n.clicked.connect(self.viaje)                                #snos manda a hoja 3  viaje
+        #self.ui.confirmar_n.clicked.connect(self.viaje)                                #nos manda a hoja 3 viaje
 
-    #hoja 3 vieje
-    def viaje(self):                                                                    #menu de vieje     
+    #hoja 3 viaje
+    def viaje(self):                                                                    #menu de viaje     
         #time.sleep(3)
         self.ui.stackedWidget.setCurrentIndex(3)                        
         self.ui.irconfimov.clicked.connect(self.configurar_viaje)                       #si se presiona se va a configurar viaje
@@ -75,7 +75,7 @@ class Roc (QDialog):
         self.ui.opc_inicio.clear()
         self.ui.opc_fin.clear()   
 
-    def confirmar_nodos(self):                                                          #se confirman los nodos con un messengbox
+    def confirmar_nodos(self):                                                          #se confirman los nodos con un messageBox
         self.elinicio = self.ui.opc_inicio.text()
         self.elfin = self.ui.opc_fin.text()
         if not self.elinicio or not self.elfin:
@@ -102,7 +102,7 @@ class Roc (QDialog):
         _, g = metodos.db()
         todos_los_nodos = g.nodes()
         t = time.time()                                                                 # ingresamos el tiempo base
-        qr = []                                                                         #es un un arreglo vaicio el cual ya a contener la salida de la funcion
+        qr = []                                                                         #es un un arreglo vacio el cual ya va a contener la salida de la funcion
         estado = True                                                                   #es la llave para el ciclo while creo que se puede cambiar y solamente poner while true y poner breaks
         time.sleep(1)
         while estado:
@@ -121,10 +121,10 @@ class Roc (QDialog):
             frame = cv2.flip(frame,1)                                                   #para mostrarlo
             imagen = QImage(frame,frame.shape[1], frame.shape[0],frame.strides[0], QImage.Format_RGB888)
             self.ui.imagen.setPixmap(QPixmap.fromImage(imagen))
-            if (n== t + espera) or (n>= t + espera):                                    #aquie se genera la cuenta
+            if (n== t + espera) or (n>= t + espera):                                    #aqui se genera la cuenta
                 estado = False
-            key = cv2.waitKey(3) & 0xff                                                 #!!muy importante este key es necesario 
-            if key == False:                                                                            #para que funcione esta parte !!
+            key = cv2.waitKey(3) & 0xff                                                 #¡¡muy importante, este key es necesario
+            if key == False:                                                                            #para que funcione esta parte!!
                 break
         self.cap.release()
         self.ui.imagen.setPixmap(QPixmap.fromImage("C:/Users/Enrique Manuel/Desktop/multiventanas/fondos/saitama.png"))
