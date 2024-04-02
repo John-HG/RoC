@@ -25,7 +25,7 @@ def busqueda(star, stop):
     return astar                                        #retornamos una lista que se genera del metodo  
 # busqueda con error 
 def busqueda_error(star, stop, error):
-    #realizamso lo mismo que en el metodo anteriro pero agremamos una linea mas               
+    #realizamos lo mismo que en el metodo anterior pero agregamos una linea mas               
     _, g = db()                                         
     g.remove_node(error)                                #en esta linea removemos el nodo si es que el robot detecta 
                                                         #algun tipo de obstaculo   
